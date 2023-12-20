@@ -1,0 +1,21 @@
+User Story 1
+Als Kunde des “Glückliche Wahl” möchte ich ein zufälliges Standesamt
+vorgeschlagen bekommen, damit ich mich nicht selbst entscheiden muss.
+Definition of Complete
+• Ein Button mit dem Titel “Glückliche Wahl” wird angezeigt
+• Ein zufällig ausgewähltes Standesamt aus der Wien Open Data Liste wird auf der
+Website angezeigt.
+(https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1
+.1.0&typeName=ogdwien:TRAUMHOCHZEITOGD&srsName=EPSG:4326&outputFor
+mat=json)
+• Die Ausgabe enthält Name, Addresse und Weblink des Standesamts
+
+
+User Story 2
+Als Kunde des “Glückliche Wahl” möchte ich, dass die Website responsive ist, damit
+ich sicher sein kann, dass ich die Applikation unabhängig von meinem Endgerät
+userfreundlich nutzen kann.
+Definition of Complete
+• Die Website ist responsive
+• Die Website ist für die Layouts “Phone”, “Tablet” und “PC Widescreen” optimiert
+• Die Website folgt den Gestaltgrundsätzen von Jakob Nielsen

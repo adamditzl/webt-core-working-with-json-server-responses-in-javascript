@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glückliche Wahl</title>
+    <link rel="stylesheet" href="mystyle.css">
+</head>
+<body>
+
+<button id="gluecklicheWahlBtn">Glückliche Wahl</button>
+
+<div id="standesamtInfo">
+    <!-- Hier wird die Information zum Standesamt angezeigt -->
+</div>
+
+<script>
+    document.getElementById('gluecklicheWahlBtn').addEventListener('click', getRandomStandesamt);
+
+    function getRandomStandesamt() {
+        fetch('TRAUMHOCHZEITOGD.json')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Fehler beim Abrufen der Daten');
+                }
+                return response.json();
+            })
+            .then(data => {
+                displayStandesamtInfo(data);
+            })
+            .catch(error => {
+                alert(error.message);
+            });
+    }
+
+    function displayStandesamtInfo(data) {
+        var standesamtInfo = document.getElementById('standesamtInfo');
+        standesamtInfo.innerHTML = "<p><strong>Name:</strong> " + data.name + "</p><p><strong>Adresse:</strong> " + data.address + "</p><p><strong>Weblink:</strong> " + data.weblink + "</p>";
+    }
+</script>
+
+</body>
+</html>

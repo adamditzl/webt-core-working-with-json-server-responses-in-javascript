@@ -1,0 +1,60 @@
+/* Reset CSS */
+body, h1, h2, h3, p, button {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    line-height: 1.6;
+}
+
+#gluecklicheWahlBtn {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#gluecklicheWahlBtn:hover {
+    background-color: #2980b9;
+}
+
+#standesamtInfo {
+    margin-top: 20px;
+}
+
+/* Responsive Design */
+@media only screen and (max-width: 600px) {
+    body {
+        font-size: 14px;
+    }
+
+    #gluecklicheWahlBtn {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    #standesamtInfo {
+        margin-top: 15px;
+    }
+}
+
+@media only screen and (min-width: 601px) {
+    body {
+        font-size: 16px;
+    }
+
+    #gluecklicheWahlBtn {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+
+    #standesamtInfo {
+        margin-top: 20px;
+    }
+}

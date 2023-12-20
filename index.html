@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Glückliche Wahl</title>
-    <link rel="stylesheet" href="mystyle.css">
 </head>
 <body>
 
@@ -15,28 +14,22 @@
 </div>
 
 <script>
-    document.getElementById('gluecklicheWahlBtn').addEventListener('click', getRandomStandesamt);
-
-    function getRandomStandesamt() {
-        fetch('TRAUMHOCHZEITOGD.json')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Fehler beim Abrufen der Daten');
-                }
-                return response.json();
-            })
+    // JavaScript-Code für die Anforderung eines zufälligen Standesamts
+    document.getElementById("gluecklicheWahlBtn").addEventListener("click", function () {
+        fetch('https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:TRAUMHOCHZEITOGD&srsName=EPSG:4326&outputFormat=json')
+            .then(response => response.json())
             .then(data => {
-                displayStandesamtInfo(data);
+                const features = data.features;
+                const randomStandesamt = features[Math.floor(Math.random() * features.length)].properties;
+
+                // Hier wird die empfangene Information auf der Webseite angezeigt
+                document.getElementById("standesamtInfo").innerHTML = "<p><strong>Name:</strong> " + randomStandesamt.name + "</p><p><strong>Adresse:</strong> " + randomStandesamt.address + "</p><p><strong>Weblink:</strong> " + randomStandesamt.weblink + "</p>";
             })
             .catch(error => {
-                alert(error.message);
+                console.error('Fehler beim Abrufen der Daten:', error);
+                alert('Fehler beim Abrufen der Daten');
             });
-    }
-
-    function displayStandesamtInfo(data) {
-        var standesamtInfo = document.getElementById('standesamtInfo');
-        standesamtInfo.innerHTML = "<p><strong>Name:</strong> " + data.name + "</p><p><strong>Adresse:</strong> " + data.address + "</p><p><strong>Weblink:</strong> " + data.weblink + "</p>";
-    }
+    });
 </script>
 
 </body>

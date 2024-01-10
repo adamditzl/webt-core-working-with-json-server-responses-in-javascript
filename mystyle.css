@@ -1,4 +1,3 @@
-/* Reset CSS */
 body, h1, h2, h3, p, button {
     margin: 0;
     padding: 0;
@@ -31,7 +30,8 @@ body {
 /* Responsive Design */
 @media only screen and (max-width: 600px) {
     body {
-        font-size: 14px;
+        font-size: 12px;
+        background-color: antiquewhite;
     }
 
     #gluecklicheWahlBtn {
@@ -41,6 +41,21 @@ body {
 
     #standesamtInfo {
         margin-top: 15px;
+    }
+    #eins {
+        background-color: grey;
+        border-radius: 5px;
+        padding: 5px;
+    }
+    #zwei {
+        background-color: darkgrey;
+        border-radius: 5px;
+        padding: 5px;
+    }
+    #drei {
+        background-color: lightgrey;
+        border-radius: 5px;
+        padding: 5px;
     }
 }
 
@@ -56,5 +71,20 @@ body {
 
     #standesamtInfo {
         margin-top: 20px;
+    }
+    #eins {
+        background-color: lightgrey;
+        border-radius: 5px;
+        padding: 10px;
+    }
+    #zwei {
+        background-color: darkgrey;
+        border-radius: 5px;
+        padding: 10px;
+    }
+    #drei {
+        background-color: grey;
+        border-radius: 5px;
+        padding: 10px;
     }
 }

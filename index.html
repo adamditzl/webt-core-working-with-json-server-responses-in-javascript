@@ -4,17 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Glückliche Wahl</title>
+    <link rel="stylesheet" href="mystyle.css">
 </head>
 <body>
 
 <button id="gluecklicheWahlBtn">Glückliche Wahl</button>
-
 <div id="standesamtInfo">
-    <link rel="json" href="TRAUMHOCHZEITOGD.json">
+
 </div>
 
 <script>
-    // JavaScript-Code für die Anforderung eines zufälligen Standesamts
     document.getElementById("gluecklicheWahlBtn").addEventListener("click", function () {
         fetch('https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:TRAUMHOCHZEITOGD&srsName=EPSG:4326&outputFormat=json')
             .then(response => response.json())
@@ -22,8 +21,10 @@
                 const features = data.features;
                 const randomStandesamt = features[Math.floor(Math.random() * features.length)].properties;
 
-                // Hier wird die empfangene Information auf der Webseite angezeigt
-                document.getElementById("standesamtInfo").innerHTML = "<p><strong>Name:</strong> " + randomStandesamt.name + "</p><p><strong>Adresse:</strong> " + randomStandesamt.address + "</p><p><strong>Weblink:</strong> " + randomStandesamt.weblink + "</p>";
+                document.getElementById("standesamtInfo").innerHTML =
+                    "<p id='eins'><strong>Name:</strong> " + randomStandesamt.LOCATION +
+                    "</p><p id='zwei'><strong>Adresse:</strong> " + randomStandesamt.ADRESSE +
+                    "</p><p id='drei'><strong>Weblink:</strong> " + randomStandesamt.WEBLINK1 + "</p>";
             })
             .catch(error => {
                 console.error('Fehler beim Abrufen der Daten:', error);
@@ -31,6 +32,5 @@
             });
     });
 </script>
-
 </body>
 </html>
